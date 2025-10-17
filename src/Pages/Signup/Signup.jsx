@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import './Signup.css';
+import { useSignup } from '../../Hooks/auth.hooks';
 
 function Signup() {
   const [formData, setFormData] = useState({
-    name: '',
+    fullname: '',
     email: '',
     password: '',
     confirmPassword: '',
+    username: '',
+    phoneNumber: '',
+    role : 'user'
   });
+
+  const signUp = useSignup()
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,8 +27,8 @@ function Signup() {
       return;
     }
 
-    console.log('User Data:', formData);
-    alert("Signup Successful!");
+    signUp( formData )
+
   };
 
   return (
@@ -33,9 +39,19 @@ function Signup() {
           <label>Full Name</label>
           <input
             type="text"
-            name="name"
+            name="fullname"
             placeholder="Enter your name"
-            value={formData.name}
+            value={formData.fullname}
+            onChange={handleChange}
+            required
+          />
+
+          <label>User Name</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Enter username"
+            value={formData.username}
             onChange={handleChange}
             required
           />
@@ -46,6 +62,16 @@ function Signup() {
             name="email"
             placeholder="Enter your email"
             value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          <label>Phone Number</label>
+          <input
+            type="number"
+            name="phoneNumber"
+            placeholder="Enter your phone number"
+            value={formData.phoneNumber}
             onChange={handleChange}
             required
           />
