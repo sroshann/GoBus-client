@@ -1,0 +1,65 @@
+/* Full-screen container */
+.addbus-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #00c6ff, #007bff);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Card */
+.addbus-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Title */
+.addbus-title {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.6rem;
+}
+
+/* Form styling */
+.addbus-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addbus-form label {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.addbus-form input {
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Button */
+.addbus-btn {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.addbus-btn:hover {
+  background-color: #0056b3;
+}
