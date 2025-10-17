@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { axiosInstance } from "../lib/axios"
-import { useDispatch } from "react-redux"
-import { setUserData } from "../Store/Reducers/auth.reducer"
+import { useDispatch, useSelector } from "react-redux"
+import { setIsAdmin, setUserData } from "../Store/Reducers/auth.reducer"
 
 export const useSignup = () => {
     
@@ -32,6 +32,10 @@ export const useLogin = () => {
 
             const response = await axiosInstance.post('/auth/login', data)
             dispatch( setUserData( response?.data ) )
+
+            const { role } = response?.data
+            if ( role === "admin" ) dispatch( setIsAdmin() )
+
             navigate('/')
             alert('Loged in successfully')
 
@@ -45,12 +49,16 @@ export const useLogout = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const { userData } = useSelector( state => state.authentication )
     return async () => {
 
         try {
 
             const response = await axiosInstance.get('/auth/logout')
             dispatch( setUserData( null ) )
+            
+            if ( userData?.role === "admin" ) dispatch( setIsAdmin() )
+
             navigate('/')
             alert('Loged out in successfully')
 

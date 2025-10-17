@@ -1,125 +1,188 @@
 import React, { useState } from "react";
 import "./AddBus.css";
-import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
+import { FaClock, FaMapMarkerAlt, FaPlus, FaTrash } from "react-icons/fa";
 import Navbar from "../../Components/Navbar/Navbar";
-import Footer from '../../Components/Footer/Footer';
+import Footer from "../../Components/Footer/Footer";
+import { useAddBus } from "../../Hooks/bus.hooks";
 
 function AddBus() {
-  const [busNumber, setBusNumber] = useState("");
-  const [ownerName, setOwnerName] = useState("");
-  const [insuranceId, setInsuranceId] = useState("");
-  const [licenseNumber, setLicenseNumber] = useState("");
-  const [destination, setDestination] = useState("");
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
+    const [busName, setBusName] = useState("");
+    const [busNumber, setBusNumber] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const busData = {
-      busNumber,
-      ownerName,
-      insuranceId,
-      licenseNumber,
-      destination,
-      startTime,
-      endTime,
+    const [owner, setOwner] = useState({
+        name: "",
+        address: "",
+        mobileNumber: "",
+    });
+
+    const [routes, setRoutes] = useState([
+        { stop: "", arrivalTime: "", departureTime: "" },
+    ]);
+
+    const addBus = useAddBus()
+
+    const handleAddRoute = () => {
+        setRoutes([...routes, { stop: "", arrivalTime: "", departureTime: "" }]);
     };
-    console.log("Bus Added:", busData);
-    alert("Bus added successfully!");
-  };
 
-  return (
-  
-  <>
-  <Navbar/>
-    <div className="addbus-container">
-      <div className="addbus-card">
-        <h2 className="addbus-title">Add New Bus</h2>
-        <form className="addbus-form" onSubmit={handleSubmit}>
-          <label>Bus Number:</label>
-          <input
-            type="text"
-            value={busNumber}
-            onChange={(e) => setBusNumber(e.target.value)}
-            placeholder="Enter bus number"
-            required
-          />
+    const handleRemoveRoute = (index) => {
+        const updatedRoutes = routes.filter((_, i) => i !== index);
+        setRoutes(updatedRoutes);
+    };
 
-          <label>Owner Name:</label>
-          <input
-            type="text"
-            value={ownerName}
-            onChange={(e) => setOwnerName(e.target.value)}
-            placeholder="Enter owner's name"
-            required
-          />
+    const handleRouteChange = (index, field, value) => {
+        const updatedRoutes = [...routes];
+        updatedRoutes[index][field] = value;
+        setRoutes(updatedRoutes);
+    };
 
-          <label>Insurance ID:</label>
-          <input
-            type="text"
-            value={insuranceId}
-            onChange={(e) => setInsuranceId(e.target.value)}
-            placeholder="Enter insurance ID"
-            required
-          />
+    const handleOwnerChange = (field, value) => {
+        setOwner((prev) => ({ ...prev, [field]: value }));
+    };
 
-          <label>Owner Mobile Number:</label>
-          <input
-            type="text"
-            value={licenseNumber}
-            onChange={(e) => setLicenseNumber(e.target.value)}
-            placeholder="Enter owner mobile number"
-            required
-          />
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-          <h3 className="routes-title">Destination & Timings</h3>
+        const busData = {
+            busName,
+            busNumber,
+            status : true,
+            owner, 
+            routes, 
+        };
 
-          <div className="route-item">
-            <div className="destination-group">
-              <FaMapMarkerAlt className="destination-icon" />
-              <input
-                type="text"
-                placeholder="Enter destination"
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)}
-                required
-              />
-            </div>
-
-            <div className="route-bottom">
-              <div className="time-group">
-                <FaClock className="time-icon" />
-                <input
-                  type="time"
-                  value={startTime}
-                  onChange={(e) => setStartTime(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className="time-group">
-                <FaClock className="time-icon" />
-                <input
-                  type="time"
-                  value={endTime}
-                  onChange={(e) => setEndTime(e.target.value)}
-                  required
-                />
-              </div>
-            </div>
-          </div>
-
-          <button type="submit" className="addbus-btn">
-            Add Bus
-          </button>
-        </form>
+        addBus( busData )
         
-      </div>
-      
-    </div>
-    <Footer/>
-  </>  
-  );
+    };
+
+    return (
+        <>
+            <Navbar />
+            <div className="addbus-container">
+                <div className="addbus-card">
+                    <h2 className="addbus-title">Add New Bus</h2>
+
+                    <form className="addbus-form" onSubmit={handleSubmit}>
+                    
+                        <label>Bus Name:</label>
+                        <input
+                            type="text"
+                            value={busName}
+                            onChange={(e) => setBusName(e.target.value)}
+                            placeholder="Enter bus name"
+                            required
+                        />
+
+                        <label>Bus Number:</label>
+                        <input
+                            type="text"
+                            value={busNumber}
+                            onChange={(e) => setBusNumber(e.target.value)}
+                            placeholder="Enter bus number"
+                            required
+                        />
+
+                        <h3 className="routes-title">Owner Details</h3>
+
+                        <label>Owner Name:</label>
+                        <input
+                            type="text"
+                            value={owner.name}
+                            onChange={(e) => handleOwnerChange("name", e.target.value)}
+                            placeholder="Enter owner's name"
+                            required
+                        />
+
+                        <label>Owner Address:</label>
+                        <input
+                            type="text"
+                            value={owner.address}
+                            onChange={(e) => handleOwnerChange("address", e.target.value)}
+                            placeholder="Enter owner's address"
+                            required
+                        />
+
+                        <label>Owner Mobile Number:</label>
+                        <input
+                            type="text"
+                            value={owner.mobileNumber}
+                            onChange={(e) => handleOwnerChange("mobileNumber", e.target.value)}
+                            placeholder="Enter owner's mobile number"
+                            required
+                        />
+
+                        <h3 className="routes-title">Route Segments</h3>
+
+                        {routes.map((route, index) => (
+                            <div className="route-item" key={index}>
+                                <div className="destination-group">
+                                    <FaMapMarkerAlt className="destination-icon" />
+                                    <input
+                                        type="text"
+                                        placeholder="Enter stop name"
+                                        value={route.stop}
+                                        onChange={(e) =>
+                                            handleRouteChange(index, "stop", e.target.value)
+                                        }
+                                        required
+                                    />
+                                </div>
+
+                                <div className="route-bottom">
+                                    <div className="time-group">
+                                        <FaClock className="time-icon" />
+                                        <input
+                                            type="time"
+                                            value={route.arrivalTime}
+                                            onChange={(e) =>
+                                                handleRouteChange(index, "arrivalTime", e.target.value)
+                                            }
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="time-group">
+                                        <FaClock className="time-icon" />
+                                        <input
+                                            type="time"
+                                            value={route.departureTime}
+                                            onChange={(e) =>
+                                                handleRouteChange(index, "departureTime", e.target.value)
+                                            }
+                                            required
+                                        />
+                                    </div>
+
+                                    {routes.length > 1 && (
+                                        <button
+                                            type="button"
+                                            className="remove-route-btn"
+                                            onClick={() => handleRemoveRoute(index)}
+                                        >
+                                            <FaTrash />
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+
+                        <button
+                            type="button"
+                            className="addbus-btn"
+                            onClick={handleAddRoute}
+                        >
+                            <FaPlus /> Add Another Stop
+                        </button>
+
+                        <button type="submit" className="addbus-btn">
+                            Add Bus
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <Footer />
+        </>
+    );
 }
 
 export default AddBus;
