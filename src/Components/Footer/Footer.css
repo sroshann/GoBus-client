@@ -1,0 +1,29 @@
+/* src/Components/Footer/Footer.css */
+
+.footer {
+  background-color: #2980b9; /* GoBus primary color */
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  position: relative; /* default */
+}
+
+/* Optional: Sticky footer at the bottom of the viewport */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-container {
+  flex: 1; /* takes remaining height above footer */
+}

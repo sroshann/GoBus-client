@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
 
-function Login() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
+function Login({ setIsLoggedIn }) {
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,8 +13,13 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log('Login Data:', formData);
-    alert('Login Successful!');
+    // Simple login check
+    if (formData.email === 'zayan@example.com' && formData.password === '123456') {
+      setIsLoggedIn(true); // Update login state globally
+      navigate('/');       // Redirect to Home
+    } else {
+      alert('Invalid credentials!');
+    }
   };
 
   return (

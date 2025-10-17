@@ -1,0 +1,41 @@
+/* src/Components/Navbar/Navbar.css - UPDATED for Center Alignment */
+
+.main-nav {
+    /* This ensures the entire navigation block is vertically centered */
+    display: flex;
+    align-items: center;
+    height: 100%; /* Important to match the header height for alignment */
+
+    /* 🛑 KEY CHANGE 1: Allow the Navbar container to take up all available space 
+       between the left (Logo) and right (Clock/GPS) elements defined in Home.css */
+    flex-grow: 1; 
+
+    /* 🛑 KEY CHANGE 2: Center the horizontal navigation links within this growing container */
+    justify-content: center;
+  }
+  
+  .nav-links {
+    /* THIS IS THE FIX: Use Flexbox to align list items horizontally */
+    display: flex;
+    
+    /* Remove default list styling and padding/margin */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    /* Add space between the links */
+    gap: 35px; 
+  }
+  
+  /* Style for the link text */
+  .nav-item {
+    text-decoration: none; 
+    color: #c0c0ff; 
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+  }
+  
+  .nav-item:hover {
+    color: white; /* Highlight on hover */
+  }

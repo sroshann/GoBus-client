@@ -1,27 +1,45 @@
 import { useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Signup from './Pages/Signup/Signup'
 import Login from './Pages/login/Login'
 import AddBus from './Pages/Addbus/Addbus'
+import Contact from './Components/Contact/Contact'
+import Profile from './Components/Profile/Profile'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // ✅ Central auth state
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
-    <>
-
-      <Routes>
-
-        <Route element={ <Home /> } path='/' />
-        <Route element={ <Signup /> } path='/signup' />
-        <Route element={ <Login /> } path='/login' />
-        <Route element={ <AddBus /> } path='Addbus' />
-
-
-      </Routes>
+    <Routes>
       
-    </>
+        <Route 
+          path='/' 
+          element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} 
+        />
+        <Route 
+          path='/signup' 
+          element={<Signup />} 
+        />
+        <Route 
+          path='/login' 
+          element={<Login setIsLoggedIn={setIsLoggedIn} />} 
+        />
+        <Route 
+          path='/addbus' 
+          element={<AddBus />} 
+        />
+        <Route 
+          path='/Contact'
+          element={<Contact isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route 
+          path='/Profile' 
+          element={<Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} 
+        />
+      
+    </Routes>
   )
 }
 
