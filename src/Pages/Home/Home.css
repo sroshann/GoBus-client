@@ -177,7 +177,6 @@
 }
 
 .ontime { background: #bbf7d0; color: #15803d; }
-.delayed { background: #fecaca; color: #991b1b; }
 .arriving { background: #dbeafe; color: #1e40af; }
 
 .footer {
@@ -188,4 +187,3 @@
   margin-top: auto;
   font-size: 14px;
 }
-                          

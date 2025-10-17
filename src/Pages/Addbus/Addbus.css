@@ -1,33 +1,29 @@
-/* Full-screen container */
 .addbus-container {
-  height: 100vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #00c6ff, #007bff);
-  font-family: 'Poppins', sans-serif;
+  padding: 40px 20px;
+  background-color: #f9fafc;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
 }
 
-/* Card */
 .addbus-card {
   background: #fff;
-  padding: 40px 30px;
   border-radius: 16px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  padding: 30px 40px;
   width: 100%;
-  max-width: 400px;
-  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Title */
 .addbus-title {
-  margin-bottom: 20px;
-  color: #333;
+  text-align: center;
+  margin-bottom: 25px;
   font-size: 1.6rem;
+  color: #333;
 }
 
-/* Form styling */
 .addbus-form {
   display: flex;
   flex-direction: column;
@@ -35,31 +31,95 @@
 
 .addbus-form label {
   margin-top: 10px;
-  font-size: 14px;
-  color: #555;
+  font-weight: 500;
+  color: #444;
 }
 
 .addbus-form input {
-  margin-top: 5px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.addbus-form input:focus {
+  border-color: #4a90e2;
+}
+
+/* Route section */
+.routes-title {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #4a90e2;
+  text-align: center;
+}
+
+.route-item {
+  background: #f4f7fb;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* Destination input */
+.destination-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.destination-icon {
+  color: #4a90e2;
+  font-size: 1.2rem;
+}
+
+.destination-group input {
+  flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 14px;
+  outline: none;
 }
 
-/* Button */
+.destination-group input:focus {
+  border-color: #4a90e2;
+}
+
+/* Time inputs */
+.route-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.time-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.time-icon {
+  color: #4a90e2;
+  font-size: 1rem;
+}
+
+/* Submit button */
 .addbus-btn {
-  margin-top: 20px;
-  padding: 12px;
-  background-color: #007bff;
+  margin-top: 25px;
+  background-color: #4a90e2;
   color: white;
+  padding: 10px;
+  font-size: 1rem;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .addbus-btn:hover {
-  background-color: #0056b3;
+  background-color: #3578d4;
 }

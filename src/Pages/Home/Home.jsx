@@ -62,18 +62,11 @@ function Home() {
         )}
       </section>
 
+      {/* Stats Section (Removed Delay + Passengers) */}
       <section className="stats-section">
         <div className="stat-card">
           <h3>Active Buses</h3>
           <p className="stat-value">24</p>
-        </div>
-        <div className="stat-card">
-          <h3>Total Passengers</h3>
-          <p className="stat-value">1,247</p>
-        </div>
-        <div className="stat-card">
-          <h3>Avg Delay</h3>
-          <p className="stat-value">3.2 min</p>
         </div>
         <div className="stat-card">
           <h3>Routes Operating</h3>
@@ -98,15 +91,6 @@ function Home() {
             <p className="stops">Stops: Central Park • Mall Junction • City Hall • Metro Station</p>
           </div>
           <span className="status ontime">On Time</span>
-        </div>
-
-        <div className="bus-card">
-          <div className="bus-info">
-            <h3>Route 8 — Airport Terminal</h3>
-            <p>🕒 14:30 | Platform B3 | 45% capacity | WiFi</p>
-            <p className="stops">Stops: University • Shopping Center • Hotel District</p>
-          </div>
-          <span className="status delayed">Delayed 7m</span>
         </div>
 
         <div className="bus-card">
