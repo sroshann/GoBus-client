@@ -1,19 +1,13 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
-import './Navbar.css';
 import { useSelector } from 'react-redux';
 import { useLogout } from '../../Hooks/auth.hooks';
+import './Navbar.css';
 
 function Navbar() {
 
     const { userData } = useSelector( state => state.authentication )
     const logOut = useLogout()
-
-    const handleSignOut = () => {
-
-        logOut()
-
-    };
+    const handleSignOut = () => logOut()
 
     return (
         <header className="home-header">
@@ -25,9 +19,11 @@ function Navbar() {
             {/* Navigation bar */}
             <nav className="main-nav">
                 <ul className="nav-links">
+
                     <li><Link to="/" className="nav-item">Home</Link></li>
-                    <li><Link to="/Allbuses" className="nav-item">All Buses</Link></li>
-                    <li><Link to="/Addbus" className="nav-item">Add Bus</Link></li>
+
+                    { userData?.role === "admin" && <li><Link to="/Allbuses" className="nav-item">All Buses</Link></li> }
+                    { userData?.role === "admin" && <li><Link to="/Addbus" className="nav-item">Add Bus</Link></li> }
 
                     {/* Conditional Sign In / Sign Out */}
                     {userData != null ? (

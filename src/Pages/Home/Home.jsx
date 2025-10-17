@@ -110,18 +110,16 @@ function Home() {
                                                 <div key={ index }>
 
                                                     <p>{ routes.stop }</p>
-                                                    <p>🕒 { routes.arrivalTime }</p>
-                                                    <p>🕒 { routes.departureTime }</p>
+                                                    <p>|</p>
+                                                    <p>Arrival time : { routes.arrivalTime }</p>
+                                                    <p>|</p>
+                                                    <p>Departure time :  { routes.departureTime }</p>
 
                                                 </div>
 
                                             ) )
 
                                         }
-                                        <p>🕒 | Platform A1 | 85% capacity | AC + WiFi</p>
-                                        <p className="stops">
-                                            Stops: Central Park • Mall Junction • City Hall • Metro Station
-                                        </p>
 
                                     </div>
                                     <span className="status ontime">On Time</span>

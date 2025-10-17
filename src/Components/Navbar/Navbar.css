@@ -1,6 +1,5 @@
 /* ===== Navbar Layout ===== */
 .home-header {
-  width: 100%;
   padding: 15px 40px;
   background-color: #004aad; /* Deep blue for transit theme */
   color: #fff;
@@ -23,10 +22,7 @@
 }
 
 /* ===== Navigation ===== */
-.main-nav {
-  display: fixed;
-  align-items: center;
-}
+
 
 .nav-links {
   list-style: none;
@@ -35,6 +31,14 @@
   gap: 25px;
   margin: 0;
   padding: 0;
+
+  & li:nth-child( 2 ) {
+
+    display: flex;
+    column-gap: 13px;
+
+  }
+
 }
 
 .nav-item {
