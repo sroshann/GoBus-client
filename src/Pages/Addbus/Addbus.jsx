@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./AddBus.css";
 import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from '../../Components/Footer/Footer';
 
 function AddBus() {
   const [busNumber, setBusNumber] = useState("");
@@ -27,6 +29,9 @@ function AddBus() {
   };
 
   return (
+  
+  <>
+  <Navbar/>
     <div className="addbus-container">
       <div className="addbus-card">
         <h2 className="addbus-title">Add New Bus</h2>
@@ -108,8 +113,12 @@ function AddBus() {
             Add Bus
           </button>
         </form>
+        
       </div>
+      
     </div>
+    <Footer/>
+  </>  
   );
 }
 

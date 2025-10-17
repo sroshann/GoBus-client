@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Signup.css';
 import { useSignup } from '../../Hooks/auth.hooks';
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -32,6 +34,7 @@ function Signup() {
   };
 
   return (
+    <><Navbar/>
     <div className="signup-container">
       <div className="signup-card">
         <h2 className="signup-title">Create Account</h2>
@@ -103,7 +106,10 @@ function Signup() {
           Already have an account? <a href="/login">Login</a>
         </p>
       </div>
+     
     </div>
+    <Footer/>
+    </>
   );
 }
 
