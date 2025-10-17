@@ -4,16 +4,18 @@ import Home from './Pages/Home/Home'
 import Signup from './Pages/Signup/Signup'
 import Login from './Pages/login/Login'
 import AddBus from './Pages/Addbus/Addbus'
-import Contact from './Components/Contact/Contact'
-import Profile from './Components/Profile/Profile'
+
+import SelectedBus from './Pages/Selectedbus/Selectedbus'
+import Allbuses from './pages/Allbuses/Allbuses'
 
 function App() {
   // ✅ Central auth state
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
-    <Routes>
+    <>
       
+    <Routes>
         <Route 
           path='/' 
           element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} 
@@ -30,16 +32,13 @@ function App() {
           path='/addbus' 
           element={<AddBus />} 
         />
-        <Route 
-          path='/Contact'
-          element={<Contact isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
-        />
-        <Route 
-          path='/Profile' 
-          element={<Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} 
-        />
+
+        <Route element={ <SelectedBus /> } path='/selectedbus' />
+        <Route element={ <Allbuses /> } path='/Allbuses' /> 
       
     </Routes>
+
+    </>
   )
 }
 

@@ -263,7 +263,13 @@
 .delayed { background: #fecaca; color: #991b1b; } /* Red */
 .arriving { background: #dbeafe; color: #1e40af; } /* Blue */
 
+<<<<<<< HEAD
 /* --- Footer --- */
+=======
+.ontime { background: #bbf7d0; color: #15803d; }
+.arriving { background: #dbeafe; color: #1e40af; }
+
+>>>>>>> dc1850d8be78f60b76662bee3702006209a6b525
 .footer {
   text-align: center;
   padding: 20px;

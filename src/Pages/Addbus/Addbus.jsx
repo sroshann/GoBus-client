@@ -1,140 +1,112 @@
-import React, { useState } from 'react';
-import './AddBus.css';
+import React, { useState } from "react";
+import "./AddBus.css";
+import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
 
 function AddBus() {
-  const [busData, setBusData] = useState({
-    busNumber: '',
-    ownerName: '',
-    insuranceId: '',
-    licenseNumber: '',
-    routes: [{ from: '', to: '', time: '' }],
-  });
-
-  // Update main fields
-  const handleChange = (e) => {
-    setBusData({ ...busData, [e.target.name]: e.target.value });
-  };
-
-  // Update route fields dynamically
-  const handleRouteChange = (index, e) => {
-    const newRoutes = [...busData.routes];
-    newRoutes[index][e.target.name] = e.target.value;
-    setBusData({ ...busData, routes: newRoutes });
-  };
-
-  // Add a new route
-  const addRoute = () => {
-    setBusData({
-      ...busData,
-      routes: [...busData.routes, { from: '', to: '', time: '' }],
-    });
-  };
-
-  // Remove a route
-  const removeRoute = (index) => {
-    const newRoutes = busData.routes.filter((_, i) => i !== index);
-    setBusData({ ...busData, routes: newRoutes });
-  };
+  const [busNumber, setBusNumber] = useState("");
+  const [ownerName, setOwnerName] = useState("");
+  const [insuranceId, setInsuranceId] = useState("");
+  const [licenseNumber, setLicenseNumber] = useState("");
+  const [destination, setDestination] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Bus Data:', busData);
-    alert(`Bus ${busData.busNumber} added successfully!`);
-    setBusData({
-      busNumber: '',
-      ownerName: '',
-      insuranceId: '',
-      licenseNumber: '',
-      routes: [{ from: '', to: '', time: '' }],
-    });
+    const busData = {
+      busNumber,
+      ownerName,
+      insuranceId,
+      licenseNumber,
+      destination,
+      startTime,
+      endTime,
+    };
+    console.log("Bus Added:", busData);
+    alert("Bus added successfully!");
   };
 
   return (
     <div className="addbus-container">
       <div className="addbus-card">
         <h2 className="addbus-title">Add New Bus</h2>
-        <form onSubmit={handleSubmit} className="addbus-form">
-
-          <label>Bus Number</label>
+        <form className="addbus-form" onSubmit={handleSubmit}>
+          <label>Bus Number:</label>
           <input
             type="text"
-            name="busNumber"
+            value={busNumber}
+            onChange={(e) => setBusNumber(e.target.value)}
             placeholder="Enter bus number"
-            value={busData.busNumber}
-            onChange={handleChange}
             required
           />
 
-          <label>Owner Name</label>
+          <label>Owner Name:</label>
           <input
             type="text"
-            name="ownerName"
-            placeholder="Enter owner name"
-            value={busData.ownerName}
-            onChange={handleChange}
+            value={ownerName}
+            onChange={(e) => setOwnerName(e.target.value)}
+            placeholder="Enter owner's name"
             required
           />
 
-          <label>Insurance ID</label>
+          <label>Insurance ID:</label>
           <input
             type="text"
-            name="insuranceId"
+            value={insuranceId}
+            onChange={(e) => setInsuranceId(e.target.value)}
             placeholder="Enter insurance ID"
-            value={busData.insuranceId}
-            onChange={handleChange}
             required
           />
 
-          <label>Owner's License Number</label>
+          <label>Owner Mobile Number:</label>
           <input
             type="text"
-            name="licenseNumber"
-            placeholder="Enter license number"
-            value={busData.licenseNumber}
-            onChange={handleChange}
+            value={licenseNumber}
+            onChange={(e) => setLicenseNumber(e.target.value)}
+            placeholder="Enter owner mobile number"
             required
           />
 
-          <h3 className="routes-title">Routes & Timings</h3>
+          <h3 className="routes-title">Destination & Timings</h3>
 
-          {busData.routes.map((route, index) => (
-            <div key={index} className="route-item">
+          <div className="route-item">
+            <div className="destination-group">
+              <FaMapMarkerAlt className="destination-icon" />
               <input
                 type="text"
-                name="from"
-                placeholder="From"
-                value={route.from}
-                onChange={(e) => handleRouteChange(index, e)}
+                placeholder="Enter destination"
+                value={destination}
+                onChange={(e) => setDestination(e.target.value)}
                 required
               />
-              <input
-                type="text"
-                name="to"
-                placeholder="To"
-                value={route.to}
-                onChange={(e) => handleRouteChange(index, e)}
-                required
-              />
-              <input
-                type="time"
-                name="time"
-                value={route.time}
-                onChange={(e) => handleRouteChange(index, e)}
-                required
-              />
-              {busData.routes.length > 1 && (
-                <button type="button" className="remove-route" onClick={() => removeRoute(index)}>
-                  ✖
-                </button>
-              )}
             </div>
-          ))}
 
-          <button type="button" className="add-route-btn" onClick={addRoute}>
-            + Add Route
+            <div className="route-bottom">
+              <div className="time-group">
+                <FaClock className="time-icon" />
+                <input
+                  type="time"
+                  value={startTime}
+                  onChange={(e) => setStartTime(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="time-group">
+                <FaClock className="time-icon" />
+                <input
+                  type="time"
+                  value={endTime}
+                  onChange={(e) => setEndTime(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" className="addbus-btn">
+            Add Bus
           </button>
-
-          <button type="submit" className="addbus-btn">Add Bus</button>
         </form>
       </div>
     </div>

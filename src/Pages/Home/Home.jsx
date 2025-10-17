@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
 import './Home.css';
 import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 
 function Home() {
   const [from, setFrom] = useState('');
@@ -148,9 +149,7 @@ function Home() {
           </div>
         </section>
 
-        <footer className="footer">
-          <p>© 2025 GoBus Transit | Real-time bus tracking</p>
-        </footer>
+        <Footer />
       </div>
 
     </>

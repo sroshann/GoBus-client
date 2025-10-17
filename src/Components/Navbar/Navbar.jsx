@@ -13,7 +13,6 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
       <ul className="nav-links">
         <li><Link to="/" className="nav-item">Home</Link></li>
         <li><Link to="/" className="nav-item">All buses</Link></li>
-        <li><Link to="/Contact" className="nav-item">Contact</Link></li>
 
         {/* Conditional Sign In / Sign Out */}
         {isLoggedIn ? (
