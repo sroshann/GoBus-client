@@ -3,25 +3,22 @@ import { useNavigate } from 'react-router-dom';
 import './login.css'; 
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
+import { useLogin } from '../../Hooks/auth.hooks';
 
 function Login({ setIsLoggedIn }) {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const navigate = useNavigate();
+  const login = useLogin()
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
 
-    // Simple login check
-    if (formData.email === 'zayan@example.com' && formData.password === '123456') {
-      setIsLoggedIn(true); // Update login state globally
-      navigate('/');       // Redirect to Home
-    } else {
-      alert('Invalid credentials!');
-    }
+    e.preventDefault();
+    login( formData )
+    
   };
 
   return (
