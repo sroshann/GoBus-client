@@ -4,8 +4,6 @@ import Home from './Pages/Home/Home'
 import Signup from './Pages/Signup/Signup'
 import Login from './Pages/login/Login'
 import AddBus from './Pages/Addbus/Addbus'
-
-import SelectedBus from './Pages/Selectedbus/Selectedbus'
 import Allbuses from './pages/Allbuses/Allbuses'
 
 function App() {
@@ -33,7 +31,7 @@ function App() {
           element={<AddBus />} 
         />
 
-        <Route element={ <SelectedBus /> } path='/selectedbus' />
+        
         <Route element={ <Allbuses /> } path='/Allbuses' /> 
       
     </Routes>

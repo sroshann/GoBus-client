@@ -1,41 +1,86 @@
-/* src/Components/Navbar/Navbar.css - UPDATED for Center Alignment */
+/* ===== Navbar Layout ===== */
+.home-header {
+  width: 100%;
+  padding: 15px 40px;
+  background-color: #004aad; /* Deep blue for transit theme */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
+/* ===== Brand Section ===== */
+.header-left .brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0;
+}
+
+/* ===== Navigation ===== */
 .main-nav {
-    /* This ensures the entire navigation block is vertically centered */
-    display: flex;
-    align-items: center;
-    height: 100%; /* Important to match the header height for alignment */
+  display: fixed;
+  align-items: center;
+}
 
-    /* 🛑 KEY CHANGE 1: Allow the Navbar container to take up all available space 
-       between the left (Logo) and right (Clock/GPS) elements defined in Home.css */
-    flex-grow: 1; 
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
 
-    /* 🛑 KEY CHANGE 2: Center the horizontal navigation links within this growing container */
-    justify-content: center;
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+/* Hover Effects */
+.nav-item:hover {
+  background-color: #2563eb; /* Soft blue hover */
+  color: #fff;
+}
+
+/* ===== Buttons ===== */
+.sign-in-btn,
+.sign-out-btn {
+  background-color: #fff;
+  color: #004aad;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.sign-in-btn:hover,
+.sign-out-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .home-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
-  
+
   .nav-links {
-    /* THIS IS THE FIX: Use Flexbox to align list items horizontally */
-    display: flex;
-    
-    /* Remove default list styling and padding/margin */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    
-    /* Add space between the links */
-    gap: 35px; 
+    flex-wrap: wrap;
+    gap: 15px;
   }
-  
-  /* Style for the link text */
-  .nav-item {
-    text-decoration: none; 
-    color: #c0c0ff; 
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.2s;
-  }
-  
-  .nav-item:hover {
-    color: white; /* Highlight on hover */
-  }
+}

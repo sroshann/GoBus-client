@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './login.css';
+import './login.css'; 
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 
 function Login({ setIsLoggedIn }) {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -23,6 +25,9 @@ function Login({ setIsLoggedIn }) {
   };
 
   return (
+    
+    <>
+        <Navbar/>
     <div className="login-container">
       <div className="login-card">
         <h2 className="login-title">Welcome Back</h2>
@@ -55,6 +60,8 @@ function Login({ setIsLoggedIn }) {
         </p>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

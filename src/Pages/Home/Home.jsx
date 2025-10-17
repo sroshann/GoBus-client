@@ -35,31 +35,13 @@ function Home() {
       <div className="home-container">
         <header className="home-header">
           {/* 1. Logo */}
-          <div className="header-left"> 
-             <h1 className="brand">🚌 GoBus</h1>
-          </div>
+          
           
           {/* 2. Navigation */}
           < Navbar />
           
           {/* 3. Auth Buttons (Conditional Rendering) */}
-          <div className="header-right">
-            {isLoggedIn ? (
-              // Case 1: User is logged in -> Show Sign Out Button
-              <button 
-                className="sign-in-up-btn" 
-                onClick={handleAuthToggle}
-              >
-                Sign Out
-              </button>
-            ) : (
-              // Case 2: User is logged out -> Show Sign In and Sign Up Links
-              <>
-                <Link to="/login" className="sign-in-up-btn">Sign In</Link>
-                <Link to="/signup" className="sign-in-up-btn">Sign Up</Link>
-              </>
-            )}
-          </div>
+          
           
         </header>
 

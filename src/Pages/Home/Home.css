@@ -1,12 +1,11 @@
 /* --- Global & Layout --- */
 .home-container {
-  /* Background gradient for a clean, modern look */
-  background: linear-gradient(180deg, #eef2ff, #f8fafc); 
+  background: linear-gradient(180deg, #eef2ff, #f8fafc);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   font-family: 'Inter', sans-serif;
-  color: #333; /* Dark text */
+  color: #333;
 }
 
 /* --- Header --- */
@@ -14,8 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Deep blue/purple gradient for a professional feel */
-  background: linear-gradient(90deg, #007bff, #6b21a8); 
+  background: linear-gradient(90deg, #007bff, #6b21a8);
   color: white;
   padding: 15px 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -35,14 +33,13 @@
 .header-right {
   display: flex;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
   min-width: 150px;
   justify-content: flex-end;
 }
 
 .sign-in-up-btn {
-  /* Accent color for high visibility */
-  background: #ffc107; 
+  background: #ffc107;
   color: #333;
   border: none;
   padding: 8px 14px;
@@ -50,7 +47,7 @@
   cursor: pointer;
   font-weight: 600;
   transition: background 0.2s, transform 0.1s;
-  text-decoration: none; /* For Link components */
+  text-decoration: none;
   display: inline-block;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -116,7 +113,8 @@
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
-.swap-btn, .find-btn {
+.swap-btn,
+.find-btn {
   border: none;
   padding: 12px 18px;
   border-radius: 8px;
@@ -124,7 +122,7 @@
   font-weight: 600;
   color: white;
   transition: background 0.2s, transform 0.1s;
-  height: 48px; /* Match input height */
+  height: 48px;
 }
 
 .swap-btn {
@@ -137,7 +135,7 @@
 }
 
 .find-btn {
-  background: #10b981; /* Green for action */
+  background: #10b981;
   min-width: 150px;
 }
 .find-btn:hover {
@@ -174,7 +172,7 @@
   flex: 1;
   text-align: center;
   min-width: 180px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s;
 }
 .stat-card:hover {
@@ -233,7 +231,7 @@
   border-radius: 12px;
   padding: 15px 25px;
   margin-bottom: 15px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   border-left: 5px solid #007bff;
 }
 
@@ -259,17 +257,20 @@
   min-width: 90px;
   text-align: center;
 }
-.ontime { background: #bbf7d0; color: #15803d; } /* Green */
-.delayed { background: #fecaca; color: #991b1b; } /* Red */
-.arriving { background: #dbeafe; color: #1e40af; } /* Blue */
+.ontime {
+  background: #bbf7d0;
+  color: #15803d;
+}
+.delayed {
+  background: #fecaca;
+  color: #991b1b;
+}
+.arriving {
+  background: #dbeafe;
+  color: #1e40af;
+}
 
-<<<<<<< HEAD
 /* --- Footer --- */
-=======
-.ontime { background: #bbf7d0; color: #15803d; }
-.arriving { background: #dbeafe; color: #1e40af; }
-
->>>>>>> dc1850d8be78f60b76662bee3702006209a6b525
 .footer {
   text-align: center;
   padding: 20px;
@@ -282,56 +283,60 @@
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
   .home-header {
-      flex-wrap: wrap;
-      padding: 15px 20px;
-      gap: 15px;
+    flex-wrap: wrap;
+    padding: 15px 20px;
+    gap: 15px;
   }
-  .header-left, .header-right {
-      min-width: unset;
-      width: 100%;
-      justify-content: center;
+  .header-left,
+  .header-right {
+    min-width: unset;
+    width: 100%;
+    justify-content: center;
   }
   .main-nav {
-      order: 3;
-      width: 100%;
+    order: 3;
+    width: 100%;
   }
   .nav-links {
-      gap: 20px;
+    gap: 20px;
   }
-  
-  .journey-planner, .stats-section, .system-status, .departures-section {
-      width: 95%;
-      margin-left: auto;
-      margin-right: auto;
+
+  .journey-planner,
+  .stats-section,
+  .system-status,
+  .departures-section {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .input-section {
-      flex-direction: column;
-      align-items: stretch;
+    flex-direction: column;
+    align-items: stretch;
   }
   .input-box {
-      min-width: unset;
+    min-width: unset;
   }
   .swap-btn {
-      margin: 5px auto;
-      width: 50px;
-      height: 40px;
+    margin: 5px auto;
+    width: 50px;
+    height: 40px;
   }
   .find-btn {
-      width: 100%;
-      height: 50px;
+    width: 100%;
+    height: 50px;
   }
   .stats-section {
-      flex-direction: column;
-      gap: 10px;
+    flex-direction: column;
+    gap: 10px;
   }
   .bus-card {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
   .status {
-      width: 100%;
-      text-align: left;
+    width: 100%;
+    text-align: left;
   }
 }
