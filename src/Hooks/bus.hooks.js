@@ -55,12 +55,8 @@ export const useGetAllBuses = () => {
                 alert('No buses were found')
 
             }
-            else {
-
-                alert( response?.data )
-                navigate('/')
-
-            }
+            else alert( response?.data )
+            navigate('/')
 
         } catch ( error ) { console.log( error ) }
 
